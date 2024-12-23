@@ -8,15 +8,16 @@ import courseRoute from "./routes/course.route.js";
 import mediaRoute from "./routes/media.route.js";
 import purchaseRoute from "./routes/purchaseCourse.route.js";
 import courseProgressRoute from "./routes/courseProgress.route.js";
-import path from 'path'
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config({});
 
-// call database connection heref
+// call database connection here
 connectDB();
 const app = express();
 
-const _dirname = path.resolve();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,7 +26,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: true,  // Allow all origins since both are deployed together
     credentials: true
 }));
 
@@ -36,14 +37,12 @@ app.use("/api/v1/course", courseRoute);
 app.use("/api/v1/purchase", purchaseRoute);
 app.use("/api/v1/progress", courseProgressRoute);
 
-app.use(express.static(path.join(_dirname, "/client/dist")));
+// Serve static frontend files from client/dist
+app.use(express.static(path.join(__dirname, "/client/dist")));
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(_dirname, "client", "dist", "index.html"))
-})
-
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+});
 
 app.listen(PORT, () => {
-    console.log(`Server listen at port ${PORT}`);
-})
-
-
+    console.log(`Server listening on port ${PORT}`);
+});
