@@ -1,8 +1,8 @@
 import Stripe from "stripe";
-import { Course } from "../models/course.model.js";
-import { CoursePurchase } from "../models/coursePurchase.model.js";
-import { Lecture } from "../models/lecture.model.js";
-import { User } from "../models/user.model.js";
+import { Course } from "../models/course.model.mjs";
+import { CoursePurchase } from "../models/coursePurchase.model.mjs";
+import { Lecture } from "../models/lecture.model.mjs";
+import { User } from "../models/user.model.mjs";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 

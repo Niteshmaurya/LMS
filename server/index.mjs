@@ -3,11 +3,11 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectDB from "./database/db.mjs";
-import userRoute from "./routes/user.route.js";
-import courseRoute from "./routes/course.route.js";
-import mediaRoute from "./routes/media.route.js";
-import purchaseRoute from "./routes/purchaseCourse.route.js";
-import courseProgressRoute from "./routes/courseProgress.route.js";
+import userRoute from "./routes/user.route.mjs";
+import courseRoute from "./routes/course.route.mjs";
+import mediaRoute from "./routes/media.route.mjs";
+import purchaseRoute from "./routes/purchaseCourse.route.mjs";
+import courseProgressRoute from "./routes/courseProgress.route.mjs";
 import path from 'path';
 import { fileURLToPath } from 'url';
 
