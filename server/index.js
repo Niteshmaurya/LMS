@@ -12,7 +12,7 @@ import path from 'path'
 
 dotenv.config({});
 
-// call database connection here
+// call database connection heref
 connectDB();
 const app = express();
 
