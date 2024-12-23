@@ -1,5 +1,5 @@
 import express from "express"
-import isAuthenticated from "../middlewares/isAuthenticated.js";
+import isAuthenticated from "../middlewares/isAuthenticated.mjs";
 import { getCourseProgress, markAsCompleted, markAsInCompleted, updateLectureProgress } from "../controllers/courseProgress.controller.mjs";
 
 const router = express.Router()
